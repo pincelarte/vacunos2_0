@@ -1,0 +1,50 @@
+<diagram program="umletino" version="15.1"><zoom_level>10</zoom_level><element><id>UMLClass</id><coordinates><x>260</x><y>0</y><w>270</w><h>380</h></coordinates><panel_attributes>&lt;&lt;Abstract Class Vacuno&gt;&gt;
+
+--
+#caravana:string
+#tipo:string
+#raza:string
+#edad:int
+#peso:int
+#historial:string
+#alta:date
+
+--
++getCaravana() : string
++setCaravana(caravana : string) : void
++getTipo() : string
++setTipo(tipo : string) : void
++getRaza() : string
++setRaza(raza : string) : void
++getEdad() : int
++setEdad( edad : int) : void
++getPeso() : int
++setPeso( peso : int) : void
++getHistorial() : string
++setHistorial( historial : string) : void
++getAlta() : date
++setAlta( nacimiento : date) : void
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>0</x><y>440</y><w>120</w><h>70</h></coordinates><panel_attributes>Class Madre
+--
+
+--</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>130</x><y>440</y><w>120</w><h>70</h></coordinates><panel_attributes>Class Toro
+--
+
+--
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>50</x><y>370</y><w>310</w><h>90</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>290;10;10;70</additional_attributes></element><element><id>UMLClass</id><coordinates><x>260</x><y>440</y><w>110</w><h>70</h></coordinates><panel_attributes>Class Novillo
+--
+
+--
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>380</x><y>440</y><w>120</w><h>70</h></coordinates><panel_attributes>Class Vaquillona
+--
+
+--
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>510</x><y>440</y><w>110</w><h>70</h></coordinates><panel_attributes>Class Ternera
+--
+
+--
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>630</x><y>440</y><w>100</w><h>70</h></coordinates><panel_attributes>Class Ternero
+--
+
+--
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>190</x><y>370</y><w>180</w><h>90</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>160;10;10;70</additional_attributes></element><element><id>Relation</id><coordinates><x>320</x><y>370</y><w>70</w><h>90</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>50;10;10;70</additional_attributes></element><element><id>Relation</id><coordinates><x>370</x><y>370</y><w>90</w><h>90</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;70;70</additional_attributes></element><element><id>Relation</id><coordinates><x>390</x><y>370</y><w>190</w><h>90</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;170;70</additional_attributes></element><element><id>Relation</id><coordinates><x>410</x><y>370</y><w>290</w><h>90</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;270;70</additional_attributes></element></diagram>
