@@ -1,5 +1,5 @@
 <?php
-ob_start();
+
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
@@ -7,14 +7,10 @@ require_once "./php/AbstractVacuno.php";
 require_once "./php/Madre.php";
 require_once "./DataBase/conexion.php";
 
-$sql = "SELECT * FROM vacunos";
+$sql = "SELECT * FROM vacunos order by alta desc";
 $stmt = $pdo->query($sql);
-
-$dateTime = new DateTime;
-
-
 $mensaje = isset($_GET['mensaje']) ? $_GET['mensaje'] : '';
-ob_end_flush();
+
 ?>
 
 <!DOCTYPE html>
@@ -59,7 +55,6 @@ ob_end_flush();
                     <option value="novillo">Novillo</option>
                     <option value="madre">Madre</option>
                     <option value="toro">Toro</option>
-
                 </select>
                 <label for="caravana">Caravana:</label>
                 <input type="text" name="caravana" id="caravana" required>
