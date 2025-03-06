@@ -31,6 +31,17 @@ abstract class Vacuno{
         $this->caravana = $caravana;
     }
 
+    public static function eliminarVacuno($caravana)
+    {
+        global $pdo;
+
+        $sql = "DELETE FROM vacunos WHERE caravana = :caravana";
+        $stmt = $pdo->prepare($sql);
+        $stmt->bindParam(":caravana", $caravana, PDO::PARAM_STR);
+
+        return $stmt->execute();
+    }
+
     public function getTipo(){
         return $this->tipo;
     }

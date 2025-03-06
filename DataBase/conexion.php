@@ -14,8 +14,8 @@ try {
     $pdo = new PDO($dsn, $username, $password);
 
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    $mensaje = "Estado de conexión: Conectado";
+    $mensajeConexion = "Conectado a db vacunos";
 
 } catch (PDOException $e) {
-    $mensaje = "Error de conexión: " . $e->getMessage();
+    $mensajeConexion = "Error de conexión: " . $e->getMessage();
 }
