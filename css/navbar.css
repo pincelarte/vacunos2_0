@@ -1,0 +1,51 @@
+
+.navbar select {
+    display: flex;
+    width: 150px;
+    height: 16px;
+       
+     
+}
+
+.navbar input{
+    width: 70px;
+    height: 16px;
+    
+    
+    border: 2px solid #5a6945; 
+    border-radius: 5px;
+    outline: none;
+    transition: all 0.3s ease;
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+.navbar textarea #historial{
+    margin:auto;
+    width: 250px;
+    height: 36px;
+    border: 2px solid #5a6945; 
+    border-radius: 5px;
+    outline: none;
+    transition: all 0.3s ease;
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+
+
+.navbar button {
+    background-color: #5a6945; 
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
+}
+
+.navbar button:hover {
+    background-color: #768660; 
+    transform: scale(1.05); 
+}

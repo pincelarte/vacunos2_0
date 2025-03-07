@@ -1,0 +1,58 @@
+.aside{
+    display: flex;
+    justify-content: center;
+}
+
+.aside input[type="text"] {
+    width: 50%;
+    max-width: 280px;
+    font-size: 16px;
+    padding: 5px;
+    box-sizing: border-box;
+}
+.aside form {
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+}
+
+.aside button {
+    background-color: #5a6945; 
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
+}
+
+.aside button:hover {
+    background-color: #768660; 
+    transform: scale(1.05); 
+}
+
+.aside input[type="text"] {
+    width: 100%;
+    max-width: 280px;
+    padding: 10px;
+    font-size: 16px;
+    border: 2px solid #5a6945; 
+    border-radius: 5px;
+    outline: none;
+    transition: all 0.3s ease;
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+.aside input[type="text"]:focus {
+    border-color: #768660; 
+    box-shadow: 0 0 8px #3f4e2c;
+    transform: scale(1.02);
+}
+
+.aside input[type="text"]::placeholder {
+    color: #999; 
+    font-style: italic;
+}
