@@ -21,49 +21,51 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </head>
 
 <body>
+    <div class="container">
 
-    <form class="form" action="../procesar.php" method="POST">
-        <h2>Agregar Vacuno</h2>
-        <label for="tipo"></label>
-        <select name="tipo" id="tipo" required>
-            <option value="" disabled selected>Seleccione un tipo</option>
-            <option value="ternera">Ternera</option>
-            <option value="ternero">Ternero</option>
-            <option value="vaquillona">Vaquillona</option>
-            <option value="novillo">Novillo</option>
-            <option value="madre">Madre</option>
-            <option value="toro">Toro</option>
-        </select>
+        <form class="form" action="../procesar.php" method="POST">
+            <h2>Agregar Vacuno</h2>
+            <label for="tipo"></label>
+            <select name="tipo" id="tipo" required>
+                <option value="" disabled selected>Seleccione un tipo</option>
+                <option value="ternera">Ternera</option>
+                <option value="ternero">Ternero</option>
+                <option value="vaquillona">Vaquillona</option>
+                <option value="novillo">Novillo</option>
+                <option value="madre">Madre</option>
+                <option value="toro">Toro</option>
+            </select>
 
-        <label for="caravana"></label>
-        <input type="text" name="caravana" id="caravana" placeholder="Caravana" required>
+            <label for="caravana"></label>
+            <input type="text" name="caravana" id="caravana" placeholder="Caravana" required>
 
-        <label for="raza"></label>
-        <select name="raza" id="raza" required>
-            <option value="" disabled selected>Seleccione una raza</option>
-            <option value="aberdeen angus">Aberdeen Angus</option>
-            <option value="hereford">Hereford</option>
-            <option value="shorton">Shorton</option>
-            <option value="holando argentino">Holando Argentino</option>
-            <option value="charolais">Charolais</option>
-            <option value="limousin">Limousin</option>
-        </select>
+            <label for="raza"></label>
+            <select name="raza" id="raza" required>
+                <option value="" disabled selected>Seleccione una raza</option>
+                <option value="aberdeen angus">Aberdeen Angus</option>
+                <option value="hereford">Hereford</option>
+                <option value="shorton">Shorton</option>
+                <option value="holando argentino">Holando Argentino</option>
+                <option value="charolais">Charolais</option>
+                <option value="limousin">Limousin</option>
+            </select>
 
-        <label for="edad"></label>
-        <input type="number" name="edad" id="edad" placeholder="Edad">
+            <label for="edad"></label>
+            <input type="number" name="edad" id="edad" placeholder="Edad">
 
-        <label for="peso"></label>
-        <input type="number" name="peso" id="peso" placeholder="Peso">
+            <label for="peso"></label>
+            <input type="number" name="peso" id="peso" placeholder="Peso">
 
-        <label for="historial"></label>
-        <textarea name="historial" id="historial" placeholder="Comentarios"></textarea>
-        <div class="button-container">
-            <button type="submit" name="accion" value="agregar">Enviar</button>
-            <a href="../index.php">
-                <button type="button">Cancelar</button>
-            </a>
-        </div>
-    </form>
+            <label for="historial"></label>
+            <textarea name="historial" id="historial" placeholder="Comentarios"></textarea>
+            <div class="button-container">
+                <button type="submit" name="accion" value="agregar">Enviar</button>
+                <a href="../index.php">
+                    <button type="button">Cancelar</button>
+                </a>
+            </div>
+        </form>
+    </div>
 
 </body>
 
