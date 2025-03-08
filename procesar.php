@@ -1,6 +1,12 @@
 <?php
 require_once "./php/Madre.php";
 require_once "./DataBase/conexion.php";
+require_once "./php/Ternera.php";
+require_once "./php/Toro.php";
+require_once "./php/Ternero.php";
+require_once "./php/Vaquillona.php";
+require_once "./php/Novillo.php";
+
 
 
 
@@ -23,13 +29,35 @@ if (isset($_POST['accion']) && $_POST['accion'] == 'agregar') {
             break;
 
         case "ternera":
-        case "ternero":
-        case "vaquillona":
-        case "novillo":
-        case "toro":
-            $mensaje = "Falta implementar la lógica para este tipo de vacuno.";
+            $ternera = new Ternera($caravana, $tipo, $raza, $edad, $peso, $historial, $alta);
+            $ternera->guardarEnBD($pdo);
+            $mensaje = "Ternera agregada correctamente.";
             break;
 
+        case "vaquillona":
+            $vaquillona = new Vaquillona($caravana, $tipo, $raza, $edad, $peso, $historial, $alta);
+            $vaquillona->guardarEnBD($pdo);
+            $mensaje = "Vaquillona agregada correctamente.";
+            break;
+
+        case "novillo":
+            $novillo = new Novillo($caravana, $tipo, $raza, $edad, $peso, $historial, $alta);
+            $novillo->guardarEnBD($pdo);
+            $mensaje = "Novillo agregado correctamente.";
+            break;
+
+        case "toro":
+            $toro = new Toro($caravana, $tipo, $raza, $edad, $peso, $historial, $alta);
+            $toro->guardarEnBD($pdo);
+            $mensaje = "Toro agregado correctamente.";
+            break;
+
+        case "ternero":
+            $ternero = new Ternero($caravana, $tipo, $raza, $edad, $peso, $historial, $alta);
+            $ternero->guardarEnBD($pdo);
+            $mensaje = "Ternero agregado correctamente.";
+            break;
+                   
         default:
             $mensaje = "Tipo de vacuno no válido.";
     }
