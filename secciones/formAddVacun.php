@@ -16,15 +16,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Formulario animado de Vacunos</title>
-    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="../css/formAddVacun.css">
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
 </head>
 
 <body>
-
-    <nav class="navbar">
-        <a href="../index.php">Volver al inicio</a>
-    </nav>
 
     <form class="form" action="../procesar.php" method="POST">
         <h2>Agregar Vacuno</h2>
@@ -52,7 +48,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <option value="charolais">Charolais</option>
             <option value="limousin">Limousin</option>
         </select>
-        
+
         <label for="edad"></label>
         <input type="number" name="edad" id="edad" placeholder="Edad">
 
@@ -61,8 +57,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         <label for="historial"></label>
         <textarea name="historial" id="historial" placeholder="Comentarios"></textarea>
-
-        <button type="submit" name="accion" value="agregar">Enviar</button>
+        <div class="button-container">
+            <button type="submit" name="accion" value="agregar">Enviar</button>
+            <a href="../index.php">
+                <button type="button">Cancelar</button>
+            </a>
+        </div>
     </form>
 
 </body>

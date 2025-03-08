@@ -1,14 +1,93 @@
-*,
-
-::after,
-::before {
-    margin:0;
-    box-sizing: border-box;
-}
-
 
 body {
     font-family: 'Plus Jakarta Sans', sans-serif;
-    height: 100vh;
-    background-image: linear-gradient(#a3c6fd, #b6bdf9);
+    margin: 0;
+    padding: 0;
+    background-color: #f2f8e6;
 }
+
+
+.form {
+    background-color: #c9d3bb;
+    margin: 50px auto;
+    padding: 20px;
+    width: 90%;
+    max-width: 500px;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
+}
+
+.form h2 {
+    text-align: center;
+    font-size: 16px;
+    color: #5a6945;
+    margin-bottom: 10px;
+}
+
+
+.form input[type="text"],
+.form input[type="number"],
+.form select,
+.form textarea {
+    background-color:#e4e9db ;
+    width: 90%;
+    padding: 12px;
+    margin: 10px 0;
+    border: 2px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    box-sizing: border-box;
+}
+
+.form input[type="text"]:focus,
+.form input[type="number"]:focus,
+.form select:focus,
+.form textarea:focus {
+    border-color: #5a6945;
+    box-shadow: 0 0 5px rgba(90, 105, 69, 0.6);
+    outline: none;
+    box-sizing: border-box;
+}
+
+.form select {
+    cursor: pointer;
+}
+
+.form textarea {
+    resize: vertical;
+    height: 50px;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+    gap: 10px;
+    
+}
+
+.form button {
+    width: 100px;
+    padding: 8px;
+    background-color: #5a6945;
+    color: white;
+    border: none;
+    font-size: 14px;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    box-sizing: border-box;
+}
+
+.form button:hover {
+    background-color: #768660;
+    transform: scale(1.05);
+}
+
+.form button:focus {
+    outline: none;
+}
+
