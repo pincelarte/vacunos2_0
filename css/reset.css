@@ -8,11 +8,7 @@
     
 }
 
-body {
-    font-family: Arial, sans-serif;
-    padding: 10;
-    color: rgb(17, 29, 10);
-}
+
 
 .navbar, .header, .main, .aside, .footer {
     border: 2px solid #3f4e2c

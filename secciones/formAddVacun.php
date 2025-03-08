@@ -3,11 +3,9 @@
 
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Aquí podrías procesar los datos, guardarlos en la base de datos, etc.
 
-    // Redirigir de vuelta a index.php después de enviar
     header("Location: index.php");
-    exit(); // Asegurar que el script se detiene después de la redirección
+    exit();
 }
 ?>
 
@@ -17,17 +15,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Formulario de Vacunos</title>
-    <link rel="stylesheet" href="styles.css"> <!-- Opcional si usas CSS externo -->
+    <title>Formulario animado de Vacunos</title>
+    <link rel="stylesheet" href="../style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
 </head>
 
 <body>
 
     <nav class="navbar">
-        <a href="index.php">Volver al inicio</a>
+        <a href="../index.php">Volver al inicio</a>
     </nav>
 
-    <form action="../procesar.php" method="POST">
+    <form class="form" action="../procesar.php" method="POST">
+        <h2>Agregar Vacuno</h2>
         <label for="tipo"></label>
         <select name="tipo" id="tipo" required>
             <option value="" disabled selected>Seleccione un tipo</option>
@@ -52,7 +52,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <option value="charolais">Charolais</option>
             <option value="limousin">Limousin</option>
         </select>
-
+        
         <label for="edad"></label>
         <input type="number" name="edad" id="edad" placeholder="Edad">
 

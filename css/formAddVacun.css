@@ -1,0 +1,14 @@
+*,
+
+::after,
+::before {
+    margin:0;
+    box-sizing: border-box;
+}
+
+
+body {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    height: 100vh;
+    background-image: linear-gradient(#a3c6fd, #b6bdf9);
+}
