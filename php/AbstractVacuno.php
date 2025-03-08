@@ -90,24 +90,37 @@ abstract class Vacuno{
         $this->alta = $alta;
     }
 
-    public function guardarEnBD($pdo)
-    {
-        try {
-            $sql = "INSERT INTO vacunos (caravana, tipo, raza, edad, peso, historial, alta) 
-            VALUES (:caravana, :tipo, :raza, :edad, :peso, :historial, :alta)";
-
-            $stmt = $pdo->prepare($sql);
-            $stmt->execute([
-                ':caravana' => $this->getCaravana(),
-                ':tipo' => $this->getTipo(),
-                ':raza' => $this->getRaza(),
-                ':edad' => $this->getEdad(),
-                ':peso' => $this->getPeso(),
-                ':historial' => $this->getHistorial(),
-                ':alta' => $this->getAlta()->format('Y-m-d H:i:s')
-            ]);
-        } catch (PDOException $e) {
-            echo "Error al guardar en la base de datos: " . $e->getMessage();
+    public function guardarEnBD($pdo) {
+    try {
+        global $mensaje;
+        // Verifico la caravana
+        $sqlCheck = "SELECT COUNT(*) FROM vacunos WHERE caravana = :caravana";
+        $stmtCheck = $pdo->prepare($sqlCheck);
+        $stmtCheck->execute([':caravana' => $this->getCaravana()]);
+        if ($stmtCheck->fetchColumn() > 0) {
+            $mensaje = "Error: La caravana ya está en uso";
+            return;
         }
+
+        
+        $sql = "INSERT INTO vacunos (caravana, tipo, raza, edad, peso, historial, alta) 
+                VALUES (:caravana, :tipo, :raza, :edad, :peso, :historial, :alta)";
+        $stmt = $pdo->prepare($sql);
+        $stmt->execute([
+            ':caravana' => $this->getCaravana(),
+            ':tipo' => $this->getTipo(),
+            ':raza' => $this->getRaza(),
+            ':edad' => $this->getEdad(),
+            ':peso' => $this->getPeso(),
+            ':historial' => $this->getHistorial(),
+            ':alta' => $this->getAlta()->format('Y-m-d H:i:s')
+        ]);
+
+        $mensaje = "Vacuno {$this->tipo} con caravana {$this->caravana} registrado correctamente.";
+    } catch (PDOException $e) {
+        $mensaje = "Error al guardar: " . $e->getMessage();
     }
 }
+
+}
+

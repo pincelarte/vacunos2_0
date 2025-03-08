@@ -1,0 +1,66 @@
+.main H1{
+    text-align: center;
+}
+
+/* Estilo para el contenedor de todos los tags */
+.tag-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+/* Estilo para cada tag individual */
+.vacuno-tag {
+    position: relative; /* Necesario para posicionar los elementos dentro */
+    margin-left: 10px;
+    background-color: #93a47c;
+    border-radius: 10px;
+    padding: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: calc(30.33% - 10px); /* Tres vacunos por fila (ajusta según lo que necesites) */
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column; /* Para asegurar que los elementos se alineen verticalmente */
+    justify-content: space-between; /* Asegura que el contenido se distribuya y haya espacio entre ellos */
+    height: 200px; /* Ajusta la altura según lo que necesites */
+}
+
+/* Estilo para cada elemento dentro del tag */
+.tag-item {
+    display: block;
+    font-size: 14px;
+    margin: 2px 0;
+}
+
+/* Estilo para el texto en negrita */
+.tag-item strong {
+    font-weight: bold;
+}
+
+/* Estilo para el separador */
+hr {
+    border: 1px solid #ddd;
+    margin: 10px 0;
+}
+
+/* Estilo para los formularios de eliminación */
+.delete-form {
+    margin-top: auto;  /* Esto empuja el botón hacia abajo */
+    text-align: right; /* Alinea el botón a la derecha */
+}
+
+/* Estilo para el botón de eliminación */
+.delete-form button {
+    background-color: rgb(235, 89, 64);
+    color: white;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.delete-form button:hover {
+    background-color: darkred;
+}

@@ -1,9 +1,15 @@
 
+.navbar{
+    display: flex;
+    align-items: center;
+    
 
+}
 
 
 
 .navbar button {
+    margin-left: 10px;
     background-color: #5a6945; 
     color: white;
     border: none;

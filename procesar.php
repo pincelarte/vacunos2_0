@@ -25,37 +25,31 @@ if (isset($_POST['accion']) && $_POST['accion'] == 'agregar') {
         case "madre":
             $madre = new Madre($caravana, $tipo, $raza, $edad, $peso, $historial, $alta);
             $madre->guardarEnBD($pdo);
-            $mensaje = "Madre agregada correctamente.";
             break;
 
         case "ternera":
             $ternera = new Ternera($caravana, $tipo, $raza, $edad, $peso, $historial, $alta);
             $ternera->guardarEnBD($pdo);
-            $mensaje = "Ternera agregada correctamente.";
             break;
 
         case "vaquillona":
             $vaquillona = new Vaquillona($caravana, $tipo, $raza, $edad, $peso, $historial, $alta);
             $vaquillona->guardarEnBD($pdo);
-            $mensaje = "Vaquillona agregada correctamente.";
             break;
 
         case "novillo":
             $novillo = new Novillo($caravana, $tipo, $raza, $edad, $peso, $historial, $alta);
             $novillo->guardarEnBD($pdo);
-            $mensaje = "Novillo agregado correctamente.";
             break;
 
         case "toro":
             $toro = new Toro($caravana, $tipo, $raza, $edad, $peso, $historial, $alta);
             $toro->guardarEnBD($pdo);
-            $mensaje = "Toro agregado correctamente.";
             break;
 
         case "ternero":
             $ternero = new Ternero($caravana, $tipo, $raza, $edad, $peso, $historial, $alta);
             $ternero->guardarEnBD($pdo);
-            $mensaje = "Ternero agregado correctamente.";
             break;
                    
         default:

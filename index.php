@@ -21,7 +21,7 @@ $mensaje = isset($_GET['mensaje']) ? $_GET['mensaje'] : '';
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gestor Ganadero</title>
     <link rel="stylesheet" href="style.css">
-    
+
 
 
 </head>
@@ -38,25 +38,44 @@ $mensaje = isset($_GET['mensaje']) ? $_GET['mensaje'] : '';
             <a href="./secciones/formAddVacun.php">
                 <button type="button">Agregar Vacuno</button>
             </a>
+            <a href="./secciones/listarVacuno.php">
+                <button type="button">Listar Vacunos</button>
+            </a>
 
 
 
         </nav>
         <main class="main">
             <h1>Lista de Vacunos</h1>
-            <?php
-            while ($row = $stmt->fetch()) {
-                echo "<p>Caravana: " . $row['caravana'] . "</p>";
-                echo "<p>Tipo: " . $row['tipo'] . "</p>";
-                echo "<p>Raza: " . $row['raza'] . "</p>";
-                echo "<p>Edad: " . $row['edad'] . "</p>";
-                echo "<p>Peso: " . $row['peso'] . "</p>";
-                echo "<p>Historial: " . $row['historial'] . "</p>";
-                echo "<p>Alta: " . $row['alta'] . "</p><hr>";
-            }
-            ?>
+            <div class="tag-container">
+                <?php
+                while ($row = $stmt->fetch()) {
+                    echo "<div class='vacuno-tag'>";
+                    echo "<span class='tag-item'><strong>Caravana:</strong> " . $row['caravana'] . "</span>";
+                    echo "<span class='tag-item'><strong>Tipo:</strong> " . $row['tipo'] . "</span>";
+                    echo "<span class='tag-item'><strong>Raza:</strong> " . $row['raza'] . "</span>";
+                    echo "<span class='tag-item'><strong>Edad:</strong> " . $row['edad'] . "</span>";
+                    echo "<span class='tag-item'><strong>Peso:</strong> " . $row['peso'] . "</span>";
+                    echo "<span class='tag-item'><strong>Historial:</strong> " . $row['historial'] . "</span>";
+                    echo "<span class='tag-item'><strong>Alta:</strong> " . $row['alta'] . "</span>";
 
+                    // Botón de eliminación
+                    echo "<div class='delete-form'>
+                    <form action='procesar.php' method='POST'>
+                        <input type='hidden' name='caravanaEliminar' value='" . $row['caravana'] . "'>
+                        <button type='submit' name='accion' value='eliminar'>Eliminar</button>
+                    </form>
+                  </div>";
+
+                    echo "</div><hr>"; // Separador entre vacunos
+                }
+                ?>
+            </div>
         </main>
+
+
+
+
 
         <aside class="aside">
             <form action="procesar.php" method="POST">
