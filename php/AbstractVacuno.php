@@ -93,12 +93,13 @@ abstract class Vacuno{
     public function guardarEnBD($pdo) {
     try {
         global $mensaje;
+        $caravana = $this->getCaravana();
         // Verifico la caravana
         $sqlCheck = "SELECT COUNT(*) FROM vacunos WHERE caravana = :caravana";
         $stmtCheck = $pdo->prepare($sqlCheck);
         $stmtCheck->execute([':caravana' => $this->getCaravana()]);
         if ($stmtCheck->fetchColumn() > 0) {
-            $mensaje = "Error: La caravana ya está en uso";
+            $mensaje = "<span style='color: red; font-weight: bold;'>⚠ Error: La caravana <strong>$caravana</strong> ya está en uso</span>";
             return;
         }
 

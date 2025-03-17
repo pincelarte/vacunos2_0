@@ -1,4 +1,5 @@
-.main H1{
+
+.main h1{
     text-align: center;
 }
 
@@ -53,7 +54,7 @@ hr {
 
 /* Estilo para el botón de eliminación */
 .delete-form button {
-    background-color: rgb(235, 89, 64);
+    background-color: rgb(124, 78, 26);
     color: white;
     padding: 5px 10px;
     border: none;
@@ -64,3 +65,20 @@ hr {
 .delete-form button:hover {
     background-color: darkred;
 }
+
+
+/* Estilo para el botón en el main */
+.view-historial-button {
+    background-color: rgb(124, 78, 26);
+    color: white;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center; /* Asegura que el texto del botón esté centrado */
+}
+
+.view-historial-button:hover {
+    background-color: darkred;
+}
+

@@ -50,24 +50,30 @@ $mensaje = isset($_GET['mensaje']) ? $_GET['mensaje'] : '';
             <div class="tag-container">
                 <?php
                 while ($row = $stmt->fetch()) {
+                    
                     echo "<div class='vacuno-tag'>";
                     echo "<span class='tag-item'><strong>Caravana:</strong> " . $row['caravana'] . "</span>";
                     echo "<span class='tag-item'><strong>Tipo:</strong> " . $row['tipo'] . "</span>";
                     echo "<span class='tag-item'><strong>Raza:</strong> " . $row['raza'] . "</span>";
                     echo "<span class='tag-item'><strong>Edad:</strong> " . $row['edad'] . "</span>";
                     echo "<span class='tag-item'><strong>Peso:</strong> " . $row['peso'] . "</span>";
-                    echo "<span class='tag-item'><strong>Historial:</strong> " . $row['historial'] . "</span>";
                     echo "<span class='tag-item'><strong>Alta:</strong> " . $row['alta'] . "</span>";
+
+                    echo "<div class='view-historial-button'>
+                              <a href='?caravana=" . $row['caravana'] . "'>
+                             <button type='button'>Historial</button>
+                              </a>
+                          </div>";
 
                     // Botón de eliminación
                     echo "<div class='delete-form'>
-                    <form action='procesar.php' method='POST'>
-                        <input type='hidden' name='caravanaEliminar' value='" . $row['caravana'] . "'>
-                        <button type='submit' name='accion' value='eliminar'>Eliminar</button>
-                    </form>
-                  </div>";
+                             <form action='procesar.php' method='POST'>
+                                <input type='hidden' name='caravanaEliminar' value='" . $row['caravana'] . "'>
+                                <button type='submit' name='accion' value='eliminar'>Eliminar</button>
+                             </form>
+                         </div>";
 
-                    echo "</div><hr>"; // Separador entre vacunos
+                    echo "</div>"; // Separador entre vacunos
                 }
                 ?>
             </div>
@@ -78,12 +84,33 @@ $mensaje = isset($_GET['mensaje']) ? $_GET['mensaje'] : '';
 
 
         <aside class="aside">
+            <!--
             <form action="procesar.php" method="POST">
                 <label for="caravanaEliminar"></label>
                 <input type="text" name="caravanaEliminar" id="caravanaEliminar" placeholder="Ingrese la Caravana" required>
                 <button type="submit" name="accion" value="eliminar">Eliminar</button>
-            </form>
+            </form> 
+            -->
+            <?php
+            if (isset($_GET['caravana'])) {
+                // Obtener el vacuno seleccionado por caravana
+                $caravanaSeleccionada = $_GET['caravana'];
+                $sqlDetalle = "SELECT * FROM vacunos WHERE caravana = :caravana";
+                $stmtDetalle = $pdo->prepare($sqlDetalle);
+                $stmtDetalle->execute([':caravana' => $caravanaSeleccionada]);
 
+                // Mostrar los detalles del vacuno
+                if ($rowDetalle = $stmtDetalle->fetch()) {
+                    echo "<h2>Detalles de la Caravana: " . $rowDetalle['caravana'] . "</h2>";
+                    echo "<form action='procesar.php' method='POST'>";
+                    echo "<label for='historial'>Historial:</label>";
+                    echo "<textarea name='historial' id='historial' rows='5'>" . $rowDetalle['historial'] . "</textarea>";
+                    echo "<input type='hidden' name='caravana' value='" . $rowDetalle['caravana'] . "'>";
+                    echo "<button type='submit' name='accion' value='modificarHistorial'>Actualizar Historial</button>";
+                    echo "</form>";
+                }
+            }
+            ?>
         </aside>
         <footer class="footer">FOOTER</footer>
 

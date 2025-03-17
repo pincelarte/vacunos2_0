@@ -73,3 +73,18 @@ if (isset($_POST['accion']) && $_POST['accion'] == 'eliminar') {
     header("Location: index.php?mensaje=" . urlencode($mensajeEliminacion));
     exit();
 }
+
+// Modificar historial de un vacuno
+if (isset($_POST['accion']) && $_POST['accion'] == 'modificarHistorial') {
+    $caravana = $_POST['caravana'];   // Caravana del vacuno
+    $nuevoHistorial = $_POST['historial'];   // El nuevo historial desde el formulario
+
+    // Actualizar el historial en la base de datos
+    $sqlActualizar = "UPDATE vacunos SET historial = :historial WHERE caravana = :caravana";
+    $stmtActualizar = $pdo->prepare($sqlActualizar);
+    $stmtActualizar->execute([':historial' => $nuevoHistorial, ':caravana' => $caravana]);
+
+    $mensaje = "Historial del vacuno con caravana $caravana actualizado correctamente.";
+    header("Location: index.php?mensaje=" . urlencode($mensaje));
+    exit();
+}

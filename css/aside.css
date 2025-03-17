@@ -1,58 +1,50 @@
-.aside{
-    display: flex;
-    justify-content: center;
+/* Estilo para el aside */
+.aside {
+    padding: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    width: auto;
+    height: 100%; /* Asegurarse de que ocupe toda la altura */
+    overflow-y: auto; /* Hacer que se desplace si el contenido es largo */
 }
 
-.aside input[type="text"] {
-    width: 50%;
-    max-width: 280px;
-    font-size: 16px;
-    padding: 5px;
-    box-sizing: border-box;
+.aside h2 {
+    font-size: 18px;
+    margin-bottom: 20px;
+    color: #333; /* Color oscuro para los títulos */
 }
+
 .aside form {
     display: flex;
     flex-direction: column;
-    align-items: center; 
+}
+
+.aside label {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 5px;
+}
+
+.aside input[type="text"], .aside textarea {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+    margin-bottom: 15px;
 }
 
 .aside button {
-    background-color: #5a6945; 
+    background-color: #4CAF50; /* Botón verde */
     color: white;
     border: none;
-    padding: 10px 20px;
+    padding: 10px;
     font-size: 16px;
-    font-weight: bold;
     border-radius: 5px;
     cursor: pointer;
-    transition: all 0.3s ease;
-    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s;
 }
 
 .aside button:hover {
-    background-color: #768660; 
-    transform: scale(1.05); 
+    background-color: #45a049; /* Efecto hover para el botón */
 }
 
-.aside input[type="text"] {
-    width: 100%;
-    max-width: 280px;
-    padding: 10px;
-    font-size: 16px;
-    border: 2px solid #5a6945; 
-    border-radius: 5px;
-    outline: none;
-    transition: all 0.3s ease;
-    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.1);
-}
 
-.aside input[type="text"]:focus {
-    border-color: #768660; 
-    box-shadow: 0 0 8px #3f4e2c;
-    transform: scale(1.02);
-}
-
-.aside input[type="text"]::placeholder {
-    color: #999; 
-    font-style: italic;
-}
