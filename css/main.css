@@ -5,28 +5,27 @@
 
 /* Estilo para el contenedor de todos los tags */
 .tag-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 15px;
-    margin-top: 10px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+    gap: 15px; /* Espaciado entre las tarjetas */
+    padding: 15px; /* Añadimos algo de espacio dentro del contenedor */
 }
+
 
 /* Estilo para cada tag individual */
 .vacuno-tag {
-    position: relative; /* Necesario para posicionar los elementos dentro */
-    margin-left: 10px;
     background-color: #93a47c;
+    filter: drop-shadow(10px 5px 5px rgba(155, 153, 97, 0.5));
+
     border-radius: 10px;
     padding: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    width: calc(30.33% - 10px); /* Tres vacunos por fila (ajusta según lo que necesites) */
-    box-sizing: border-box;
-    font-family: Arial, sans-serif;
     display: flex;
-    flex-direction: column; /* Para asegurar que los elementos se alineen verticalmente */
-    justify-content: space-between; /* Asegura que el contenido se distribuya y haya espacio entre ellos */
-    height: 200px; /* Ajusta la altura según lo que necesites */
+    flex-direction: column;
+    justify-content: space-between;
+    height: 200px; /* Se mantiene la altura */
 }
+
 
 /* Estilo para cada elemento dentro del tag */
 .tag-item {
@@ -46,39 +45,28 @@ hr {
     margin: 10px 0;
 }
 
-/* Estilo para los formularios de eliminación */
-.delete-form {
-    margin-top: auto;  /* Esto empuja el botón hacia abajo */
-    text-align: right; /* Alinea el botón a la derecha */
+.buttons-container{
+    display: flex;
+    justify-content: space-around;
+    padding: 0.5rem;
+    
+    
 }
-
-/* Estilo para el botón de eliminación */
-.delete-form button {
-    background-color: rgb(124, 78, 26);
+.button button{
     color: white;
-    padding: 5px 10px;
-    border: none;
-    border-radius: 5px;
+    background-color: #5a6945;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
     cursor: pointer;
+    transition: background-color 0.3s ease;
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.3);
 }
 
-.delete-form button:hover {
-    background-color: darkred;
+.button button:hover {
+    background-color: #4e5a36; /* Un tono más oscuro de verde */
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
 }
 
-
-/* Estilo para el botón en el main */
-.view-historial-button {
-    background-color: rgb(124, 78, 26);
-    color: white;
-    padding: 5px 10px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    text-align: center; /* Asegura que el texto del botón esté centrado */
+#eliminar-btn:hover{
+    background-color: rgb(245, 75, 24);
 }
-
-.view-historial-button:hover {
-    background-color: darkred;
-}
-

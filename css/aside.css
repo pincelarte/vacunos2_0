@@ -25,26 +25,26 @@
 }
 
 .aside input[type="text"], .aside textarea {
-    padding: 10px;
-    border: 1px solid #ddd;
+    background-color: #c9d3bb;
+    border: 1px solid #c9d3bb;
     border-radius: 4px;
     font-size: 14px;
     margin-bottom: 15px;
 }
 
 .aside button {
-    background-color: #4CAF50; /* Botón verde */
     color: white;
-    border: none;
-    padding: 10px;
-    font-size: 16px;
-    border-radius: 5px;
+    background-color: #5a6945;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
     cursor: pointer;
-    transition: background-color 0.3s;
+    transition: background-color 0.3s ease;
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.3);
 }
 
 .aside button:hover {
-    background-color: #45a049; /* Efecto hover para el botón */
+    background-color: #4e5a36; /* Un tono más oscuro de verde */
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
 }
 
 

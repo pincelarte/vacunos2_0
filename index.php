@@ -3,6 +3,8 @@
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
+setlocale(LC_TIME, "es_ES.UTF-8"); 
+
 require_once "./php/AbstractVacuno.php";
 require_once "./php/Madre.php";
 require_once "./DataBase/conexion.php";
@@ -57,23 +59,24 @@ $mensaje = isset($_GET['mensaje']) ? $_GET['mensaje'] : '';
                     echo "<span class='tag-item'><strong>Raza:</strong> " . $row['raza'] . "</span>";
                     echo "<span class='tag-item'><strong>Edad:</strong> " . $row['edad'] . "</span>";
                     echo "<span class='tag-item'><strong>Peso:</strong> " . $row['peso'] . "</span>";
-                    echo "<span class='tag-item'><strong>Alta:</strong> " . $row['alta'] . "</span>";
+                    echo "<span class='tag-item'><strong>Alta:</strong> " . date("d F Y", strtotime($row['alta'])) . "</span>";
+                    
+                        echo "<div class='buttons-container'> ";
+                            
+                            echo "<div class='button'>
+                                      <a href='?caravana=" . $row['caravana'] . "'>
+                                     <button type='button'>Historial</button>
+                                      </a>
+                                  </div>";
+                            echo "<div class='button'>
+                                     <form action='procesar.php' method='POST'>
+                                        <input type='hidden' name='caravanaEliminar' value='" . $row['caravana'] . "'>
+                                        <button type='submit' name='accion' value='eliminar' id='eliminar-btn' >Eliminar</button>
+                                     </form>
+                                 </div> ";
+                        echo "</div>"; //cierre del button container
 
-                    echo "<div class='view-historial-button'>
-                              <a href='?caravana=" . $row['caravana'] . "'>
-                             <button type='button'>Historial</button>
-                              </a>
-                          </div>";
-
-                    // Botón de eliminación
-                    echo "<div class='delete-form'>
-                             <form action='procesar.php' method='POST'>
-                                <input type='hidden' name='caravanaEliminar' value='" . $row['caravana'] . "'>
-                                <button type='submit' name='accion' value='eliminar'>Eliminar</button>
-                             </form>
-                         </div>";
-
-                    echo "</div>"; // Separador entre vacunos
+                    echo "</div>";//cierre del vacuno-tag 
                 }
                 ?>
             </div>
