@@ -9,10 +9,20 @@
 }
 
 
-
+/*
 .navbar, .header, .main, .aside, .footer {
     border: 2px solid #3f4e2c
 }
+*/
+.border-relieve {
+    background: linear-gradient(145deg, #e0e8d5, #a2b38b);
+    border: 0.1px solid #5a6945;
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3);
+}
+
+
+
+
 
 .container{
     display: grid;

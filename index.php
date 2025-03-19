@@ -3,7 +3,7 @@
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
-setlocale(LC_TIME, "es_ES.UTF-8"); 
+setlocale(LC_TIME, "es_ES.UTF-8");
 
 require_once "./php/AbstractVacuno.php";
 require_once "./php/Madre.php";
@@ -31,11 +31,11 @@ $mensaje = isset($_GET['mensaje']) ? $_GET['mensaje'] : '';
 <body>
     <div class="container">
 
-        <header class="header">
+        <header class="header border-relieve">
             <p><?php echo $mensajeConexion; ?></p>
             <p><?php echo $mensaje; ?></p>
         </header>
-        <nav class="navbar">
+        <nav class="navbar border-relieve">
 
             <a href="./secciones/formAddVacun.php">
                 <button type="button">Agregar Vacuno</button>
@@ -47,36 +47,35 @@ $mensaje = isset($_GET['mensaje']) ? $_GET['mensaje'] : '';
 
 
         </nav>
-        <main class="main">
+        <main class="main border-relieve">
             <h1>Lista de Vacunos</h1>
             <div class="tag-container">
                 <?php
                 while ($row = $stmt->fetch()) {
-                    
-                    echo "<div class='vacuno-tag'>";
-                    echo "<span class='tag-item'><strong>Caravana:</strong> " . $row['caravana'] . "</span>";
-                    echo "<span class='tag-item'><strong>Tipo:</strong> " . $row['tipo'] . "</span>";
-                    echo "<span class='tag-item'><strong>Raza:</strong> " . $row['raza'] . "</span>";
-                    echo "<span class='tag-item'><strong>Edad:</strong> " . $row['edad'] . "</span>";
-                    echo "<span class='tag-item'><strong>Peso:</strong> " . $row['peso'] . "</span>";
-                    echo "<span class='tag-item'><strong>Alta:</strong> " . date("d F Y", strtotime($row['alta'])) . "</span>";
-                    
-                        echo "<div class='buttons-container'> ";
-                            
-                            echo "<div class='button'>
-                                      <a href='?caravana=" . $row['caravana'] . "'>
-                                     <button type='button'>Historial</button>
-                                      </a>
-                                  </div>";
-                            echo "<div class='button'>
-                                     <form action='procesar.php' method='POST'>
-                                        <input type='hidden' name='caravanaEliminar' value='" . $row['caravana'] . "'>
-                                        <button type='submit' name='accion' value='eliminar' id='eliminar-btn' >Eliminar</button>
-                                     </form>
-                                 </div> ";
-                        echo "</div>"; //cierre del button container
 
-                    echo "</div>";//cierre del vacuno-tag 
+                    echo "<div class='vacuno-tag'>";
+                        echo "<span class='tag-item'><strong>Caravana:</strong> " . $row['caravana'] . "</span>";
+                        echo "<span class='tag-item'><strong>Tipo:</strong> " . $row['tipo'] . "</span>";
+                        echo "<span class='tag-item'><strong>Raza:</strong> " . $row['raza'] . "</span>";
+                        echo "<span class='tag-item'><strong>Edad:</strong> " . $row['edad'] . "</span>";
+                        echo "<span class='tag-item'><strong>Peso:</strong> " . $row['peso'] . "</span>";
+                        echo "<span class='tag-item'><strong>Alta:</strong> " . date("d F Y", strtotime($row['alta'])) . "</span>";
+
+                        echo "<div class='buttons-container'> ";
+
+                            echo "<div class='button'>
+                                    <a href='?caravana=" . $row['caravana'] . "'>
+                                        <button type='button'>Historial</button>
+                                    </a>
+                                 </div>";
+                            echo "<div class='button'>
+                                    <form action='procesar.php' method='POST'>
+                                       <input type='hidden' name='caravanaEliminar' value='" . $row['caravana'] . "'>
+                                       <button type='submit' name='accion' value='eliminar' id='eliminar-btn' >Eliminar</button>
+                                    </form>
+                                  </div> ";
+                        echo "</div>"; //cierre del button container
+                    echo "</div>"; //cierre del vacuno-tag 
                 }
                 ?>
             </div>
@@ -86,14 +85,8 @@ $mensaje = isset($_GET['mensaje']) ? $_GET['mensaje'] : '';
 
 
 
-        <aside class="aside">
-            <!--
-            <form action="procesar.php" method="POST">
-                <label for="caravanaEliminar"></label>
-                <input type="text" name="caravanaEliminar" id="caravanaEliminar" placeholder="Ingrese la Caravana" required>
-                <button type="submit" name="accion" value="eliminar">Eliminar</button>
-            </form> 
-            -->
+        <aside class="aside border-relieve">
+            
             <?php
             if (isset($_GET['caravana'])) {
                 // Obtener el vacuno seleccionado por caravana
@@ -115,7 +108,7 @@ $mensaje = isset($_GET['mensaje']) ? $_GET['mensaje'] : '';
             }
             ?>
         </aside>
-        <footer class="footer">FOOTER</footer>
+        <footer class="footer border-relieve">FOOTER</footer>
 
 
 
