@@ -6,7 +6,7 @@
 /* Estilo para el contenedor de todos los tags */
 .tag-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+    grid-template-columns: repeat(auto-fit, minmax(300px, 300px)); 
     gap: 15px; /* Espaciado entre las tarjetas */
     padding: 15px; /* Añadimos algo de espacio dentro del contenedor */
 }

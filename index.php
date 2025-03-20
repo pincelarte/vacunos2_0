@@ -13,6 +13,8 @@ $sql = "SELECT * FROM vacunos order by alta desc";
 $stmt = $pdo->query($sql);
 $mensaje = isset($_GET['mensaje']) ? $_GET['mensaje'] : '';
 
+session_start();
+
 ?>
 
 <!DOCTYPE html>
@@ -69,11 +71,10 @@ $mensaje = isset($_GET['mensaje']) ? $_GET['mensaje'] : '';
                                     </a>
                                  </div>";
                             echo "<div class='button'>
-                                    <form action='procesar.php' method='POST'>
-                                       <input type='hidden' name='caravanaEliminar' value='" . $row['caravana'] . "'>
-                                       <button type='submit' name='accion' value='eliminar' id='eliminar-btn' >Eliminar</button>
-                                    </form>
-                                  </div> ";
+                                    <a href='?caravana=" . $row['caravana'] . "&confirmar_eliminar=true'>
+                                        <button type='button'>Eliminar</button>
+                                    </a>
+                                  </div>";
                         echo "</div>"; //cierre del button container
                     echo "</div>"; //cierre del vacuno-tag 
                 }
@@ -89,13 +90,22 @@ $mensaje = isset($_GET['mensaje']) ? $_GET['mensaje'] : '';
             
             <?php
             if (isset($_GET['caravana'])) {
-                // Obtener el vacuno seleccionado por caravana
+                
                 $caravanaSeleccionada = $_GET['caravana'];
+                //Comparamos la caravana en la sesion del aside, para limpiar el aside-----------------------    
+                if (isset($_SESSION['ultima_caravana']) && $_SESSION['ultima_caravana'] == $caravanaSeleccionada) {
+                    unset($_SESSION['ultima_caravana']); 
+                    header("Location: index.php"); 
+                    exit();
+                }
+                $_SESSION['ultima_caravana'] = $caravanaSeleccionada;
+                //---------------------------------------------------------------------------------------------    
+                
                 $sqlDetalle = "SELECT * FROM vacunos WHERE caravana = :caravana";
                 $stmtDetalle = $pdo->prepare($sqlDetalle);
                 $stmtDetalle->execute([':caravana' => $caravanaSeleccionada]);
 
-                // Mostrar los detalles del vacuno
+                // Se muestran los detalles del vacuno en el aside --------------------------------------------
                 if ($rowDetalle = $stmtDetalle->fetch()) {
                     echo "<h2>Detalles de la Caravana: " . $rowDetalle['caravana'] . "</h2>";
                     echo "<form action='procesar.php' method='POST'>";
@@ -106,6 +116,19 @@ $mensaje = isset($_GET['mensaje']) ? $_GET['mensaje'] : '';
                     echo "</form>";
                 }
             }
+            //Aca se confirma la eliminación del vacuno en el aside---------------------------------------------
+            if (isset($_GET['confirmar_eliminar'])) {
+                $caravanaEliminar = $_GET['caravana'];
+                echo "<div class='confirmacion-eliminacion'>
+                        <h3>¿Seguro de eliminar este vacuno?</h3>
+                        <form action='procesar.php' method='POST'>
+                            <input type='hidden' name='caravanaEliminar' value='" . $caravanaEliminar . "'>
+                            <button type='submit' name='accion' value='eliminar'>Sí, Eliminar</button>
+                            <a href='index.php'><button type='button'>Cancelar</button></a>
+                        </form>
+                      </div>";
+            }     
+
             ?>
         </aside>
         <footer class="footer border-relieve">FOOTER</footer>
