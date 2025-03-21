@@ -9,6 +9,7 @@
     grid-template-columns: repeat(auto-fit, minmax(300px, 300px)); 
     gap: 15px; /* Espaciado entre las tarjetas */
     padding: 15px; /* Añadimos algo de espacio dentro del contenedor */
+    justify-content: space-around; 
 }
 
 

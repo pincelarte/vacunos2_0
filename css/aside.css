@@ -7,9 +7,10 @@
     overflow-y: auto; /* Hacer que se desplace si el contenido es largo */
 }
 
-.aside h2 {
+.aside h3 {
+    text-align: center;
     font-size: 18px;
-    margin-bottom: 20px;
+    margin-bottom: 2rem;
     color: #333; /* Color oscuro para los títulos */
 }
 
@@ -32,7 +33,13 @@
     margin-bottom: 15px;
 }
 
-.aside button {
+
+.aside .button-aside {
+    display: flex;
+    justify-content: space-around;
+}
+/* Estilo para los botones dentro de un aside */
+.aside .button-aside button {
     color: white;
     background-color: #5a6945;
     padding: 0.5rem 1rem;
@@ -40,11 +47,11 @@
     cursor: pointer;
     transition: background-color 0.3s ease;
     box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.3);
+    
 }
 
-.aside button:hover {
+.aside .button-aside button:hover {
     background-color: #4e5a36; /* Un tono más oscuro de verde */
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
 }
-
 
