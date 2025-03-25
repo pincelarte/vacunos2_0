@@ -39,7 +39,7 @@ ob_start();
             <a href="./secciones/formAddVacun.php">
                 <button type="button">Agregar Vacuno</button>
             </a>
-            <a href="./secciones/listarVacuno.php">
+            <a>
                 <button type="button">Listar Vacunos</button>
             </a>
         </nav>
@@ -60,6 +60,11 @@ ob_start();
                     echo "<div class='buttons-container'>";
                     // Botón Historial
                     echo "<div class='button'>
+                            <a>
+                                <button type='button'>Modificar</button>
+                            </a>
+                          </div>";
+                    echo "<div class='button'>
                             <a href='index.php?caravana=" . $row['caravana'] . "&accion=historial'>
                                 <button type='button'>Historial</button>
                             </a>
@@ -70,6 +75,7 @@ ob_start();
                                 <button type='button'>Eliminar</button>
                             </a>
                           </div>";
+                    
                     echo "</div>"; // Cierre de buttons-container
                     echo "</div>"; // Cierre de vacuno-tag
                 }
