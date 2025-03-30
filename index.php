@@ -37,11 +37,17 @@ ob_start();
 
         <nav class="navbar border-relieve">
             <a href="./secciones/formAddVacun.php">
-                <button type="button">Agregar Vacuno</button>
+                <button>Agregar Vacuno</button>
             </a>
-            <a>
-                <button type="button">Listar Vacunos</button>
-            </a>
+            <div class="filtros-tipo-vacuno">
+                <a href="./button/ternera.php"><button>terneras</button></a>
+                <a href="./button/ternero.php"><button>terneros</button></a>
+                <a href="./button/vaquillona.php"><button>vaquillonas</button></a>
+                <a href="./button/novillo.php"><button>novillos</button></a>
+                <a href="./button/madre.php"><button>madres</button></a>
+                <a href="./button/toro.php"><button>toros</button></a>
+            </div>
+
         </nav>
 
         <main class="main border-relieve">
@@ -75,7 +81,7 @@ ob_start();
                                 <button type='button'>Eliminar</button>
                             </a>
                           </div>";
-                    
+
                     echo "</div>"; // Cierre de buttons-container
                     echo "</div>"; // Cierre de vacuno-tag
                 }
@@ -117,7 +123,7 @@ ob_start();
                         echo "<label for='historial'>Historial:</label>";
                         echo "<textarea name='historial' id='historial' rows='5'>" . $rowDetalle['historial'] . "</textarea>";
                         echo "<input type='hidden' name='caravana' value='" . $rowDetalle['caravana'] . "'>";
-                        
+
                         echo "<div class='button-aside'>";
                         echo "<button type='submit' name='accion' value='modificarHistorial'>Actualizar</button>";
                         echo "<a href='index.php'>

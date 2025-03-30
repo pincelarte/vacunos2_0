@@ -2,12 +2,7 @@
 .navbar{
     display: flex;
     align-items: center;
-    
-
 }
-
-
-
 .navbar button {
     color: white;
     background-color: #5a6945;
@@ -18,8 +13,19 @@
     box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.3);
     margin-left: 1rem;
 }
-
 .navbar button:hover {
-    background-color: #4e5a36; /* Un tono más oscuro de verde */
+    background-color: #4e5a36; 
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
 } 
+
+.navbar .filtros-tipo-vacuno{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+
+}
+
+.navbar .filtros-tipo-vacuno button{
+    padding:2px;
+    width: 5rem;
+    
+}
