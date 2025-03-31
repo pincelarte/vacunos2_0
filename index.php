@@ -9,8 +9,19 @@ require_once "./php/AbstractVacuno.php";
 require_once "./php/Madre.php";
 require_once "./DataBase/conexion.php";
 
-$sql = "SELECT * FROM vacunos ORDER BY alta DESC";
-$stmt = $pdo->query($sql);
+
+
+
+$tipoVacuno = isset($_GET['tipo']) ? $_GET['tipo'] : '';
+if ($tipoVacuno) {
+    $sql = "SELECT * FROM vacunos WHERE tipo = :tipo ORDER BY alta DESC";
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute([':tipo' => $tipoVacuno]);
+} else {
+    $sql = "SELECT * FROM vacunos ORDER BY alta DESC";
+    $stmt = $pdo->query($sql);
+}
+
 $mensaje = isset($_GET['mensaje']) ? $_GET['mensaje'] : '';
 
 session_start();
@@ -39,19 +50,30 @@ ob_start();
             <a href="./secciones/formAddVacun.php">
                 <button>Agregar Vacuno</button>
             </a>
+            <a href="index.php"><button>Todos</button></a>
             <div class="filtros-tipo-vacuno">
-                <a href="./button/ternera.php"><button>terneras</button></a>
-                <a href="./button/ternero.php"><button>terneros</button></a>
-                <a href="./button/vaquillona.php"><button>vaquillonas</button></a>
-                <a href="./button/novillo.php"><button>novillos</button></a>
-                <a href="./button/madre.php"><button>madres</button></a>
-                <a href="./button/toro.php"><button>toros</button></a>
+                <a href="index.php?tipo=ternera"><button>Terneras</button></a>
+                <a href="index.php?tipo=ternero"><button>Terneros</button></a>
+                <a href="index.php?tipo=vaquillona"><button>Vaquillonas</button></a>
+                <a href="index.php?tipo=novillo"><button>Novillos</button></a>
+                <a href="index.php?tipo=madre"><button>Madres</button></a>
+                <a href="index.php?tipo=toro"><button>Toros</button></a>
             </div>
-
         </nav>
 
+
+
+
         <main class="main border-relieve">
-            <h1>Lista de Vacunos</h1>
+            <h1>
+                <?php
+                if ($tipoVacuno) {
+                    echo "Lista de " . ucfirst($tipoVacuno) . "s";
+                } else {
+                    echo "Lista de Vacunos";
+                }
+                ?>
+            </h1>
             <div class="tag-container">
                 <?php
                 while ($row = $stmt->fetch()) {
@@ -64,20 +86,22 @@ ob_start();
                     echo "<span class='tag-item'><strong>Alta:</strong> " . date("d F Y", strtotime($row['alta'])) . "</span>";
 
                     echo "<div class='buttons-container'>";
-                    // Botón Historial
+
+                    $urlTipo = $tipoVacuno ? "&tipo=" . urlencode($tipoVacuno) : "";
+
                     echo "<div class='button'>
                             <a>
                                 <button type='button'>Modificar</button>
                             </a>
                           </div>";
                     echo "<div class='button'>
-                            <a href='index.php?caravana=" . $row['caravana'] . "&accion=historial'>
+                            <a href='index.php?caravana=" . $row['caravana'] . "&accion=historial" . $urlTipo . "'>
                                 <button type='button'>Historial</button>
                             </a>
                           </div>";
-                    // Botón Eliminar
+                    
                     echo "<div class='button'>
-                            <a href='index.php?caravana=" . $row['caravana'] . "&accion=eliminar'>
+                            <a href='index.php?caravana=" . $row['caravana'] . "&accion=eliminar" . $urlTipo . "'>
                                 <button type='button'>Eliminar</button>
                             </a>
                           </div>";
